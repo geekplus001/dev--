@@ -1,0 +1,33 @@
+# Project: œÓƒø1
+# Makefile created by Dev-C++ 5.8.2
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+RES      = ÷Ì÷Ìœ¿_private.res
+OBJ      = ÷Ì÷Ìœ¿.o $(RES)
+LINKOBJ  = ÷Ì÷Ìœ¿.o $(RES)
+LIBS     = -L"D:/dev/Dev-Cpp/MinGW64/lib" -L"D:/dev/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -g3
+INCS     = -I"D:/dev/Dev-Cpp/MinGW64/include" -I"D:/dev/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/dev/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include"
+CXXINCS  = -I"D:/dev/Dev-Cpp/MinGW64/include" -I"D:/dev/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/dev/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include" -I"D:/dev/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include/c++"
+BIN      = ÷Ì÷Ìœ¿.exe
+CXXFLAGS = $(CXXINCS) -g3
+CFLAGS   = $(INCS) -g3
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+÷Ì÷Ìœ¿.o: ÷Ì÷Ìœ¿.c
+	$(CC) -c ÷Ì÷Ìœ¿.c -o ÷Ì÷Ìœ¿.o $(CFLAGS)
+
+÷Ì÷Ìœ¿_private.res: ÷Ì÷Ìœ¿_private.rc 
+	$(WINDRES) -i ÷Ì÷Ìœ¿_private.rc --input-format=rc -o ÷Ì÷Ìœ¿_private.res -O coff 
+
